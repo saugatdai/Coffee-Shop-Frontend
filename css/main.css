@@ -516,3 +516,45 @@ body {
         grid-area: nine;
     }
 }
+
+
+/* modal */
+
+.work-modal {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-modal__item {
+    background: url('../img/work-1.jpeg')center/cover;
+    height: 70vh;
+    width: 80vw;
+    border: .5rem solid var(--yellow);
+    border-radius: .4rem;
+}
+
+.work-modal__close {
+    position: fixed;
+    font-size: 3rem;
+    color: var(--brightYellow);
+    position: fixed;
+    z-index: 10000;
+    bottom: 5%;
+    right: 5%;
+    transition: color .5s linear;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.work-modal__close:hover {
+    color: red;
+}
