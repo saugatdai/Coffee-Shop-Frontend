@@ -38,7 +38,22 @@ function eventListeners() {
         }
 
     });
+
+    // display modal
+    const links = document.querySelectorAll('.work-item__icon');
+    links.forEach(item => {
+        item.addEventListener('click', function(event) {
+            ui.showModal(event);
+        });
+    });
+
+    // hide modal
+    document.querySelector('.work-modal__close').addEventListener('click', function() {
+        ui.closeModal();
+    });
 }
+
+
 
 function UI() {}
 
@@ -110,6 +125,28 @@ UI.prototype.clearFields = function() {
     document.querySelector('.input-email').value = '';
 }
 
+UI.prototype.showModal = function(event) {
+        event.preventDefault();
+        if (event.target.parentElement.classList.contains('work-item__icon')) {
+            let id = event.target.parentElement.dataset.id;
+
+            const modal = document.querySelectorAll('.work-modal');
+            const modalItem = document.querySelectorAll('.work-modal__item');
+
+            console.log(modal[0]);
+            modal[0].classList.add('work-modal--show');
+            console.log(modal[0]);
+            modalItem[0].style.backgroundImage = `url(img/work-${id}.jpeg)`;
+        }
+    }
+    // Hide modal
+
+UI.prototype.closeModal = function() {
+    document.querySelector('.work-modal').classList.remove('work-modal--show');
+};
+
+
+// Customer
 function Customer(name, lastname, email) {
     this.name = name;
     this.lastname = lastname;
